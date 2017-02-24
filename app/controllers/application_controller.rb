@@ -1,7 +1,10 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  def root
+  include UserConcern
+  helper_method :current_user, :user_signed_in?
 
+  def root
   end
+
 end

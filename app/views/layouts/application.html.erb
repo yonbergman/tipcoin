@@ -11,6 +11,14 @@
   </head>
 
   <body>
+    <header>
+      <% if user_signed_in? %>
+          Hello <%= current_user.name %>
+          <%= link_to 'Sign Out', :sign_out %>
+      <% else %>
+          <%= link_to 'Sign In', :sign_in %>
+      <% end %>
+    </header>
     <%= yield %>
   </body>
 </html>
