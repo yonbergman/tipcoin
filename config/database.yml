@@ -1,0 +1,30 @@
+shared: &shared
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *shared
+  url: <%= ENV["DATABASE_URL"] || "postgres:///tipcoin-dev" %>
+
+test:
+  <<: *shared
+  url: <%= ENV["DATABASE_URL"] || "postgres:///tipcoin-test" %>
+
+# Set connection pooling params as per: https://devcenter.heroku.com/articles/concurrency-and-database-connections#threaded-servers
+# Also see: https://devcenter.heroku.com/articles/deploying-rails-applications-with-the-puma-web-server#on-worker-boot
+heroku: &heroku
+  <<: *shared
+  url: <%= ENV["DATABASE_URL"] %>
+  pool: <%= ENV["DB_POOL"] || ENV['MAX_THREADS'] || 5 %>
+
+staging:
+  <<: *heroku
+
+production:
+  <<: *heroku
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  timeout: 5000
