@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  group_user: one
+  target: one
+  change: 
+
+two:
+  group_user: two
+  target: two
+  change: 
