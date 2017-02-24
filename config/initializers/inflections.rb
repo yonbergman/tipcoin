@@ -15,4 +15,5 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
   inflect.acronym 'URL'
   inflect.acronym 'JSON'
   inflect.acronym 'JWT'
+  inflect.acronym 'API'
 end
