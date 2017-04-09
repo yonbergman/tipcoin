@@ -1,6 +1,6 @@
 module API
   module V1
-    class SessionsController < ApplicationController
+    class SessionsController < BaseController
 
       skip_before_action :authorize, only: [:create]
 
